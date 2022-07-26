@@ -1,12 +1,28 @@
-fpath=($HOME/.local/share/zsh-completions/src $fpath)
+test -z "$TMUX" && (tmux attach || tmux new-session)
+
+unsetopt BEEP
+
+if [[ -d "$HOME/.local/share/zsh-completions/src" ]]
+then
+    fpath=($HOME/.local/share/zsh-completions/src $fpath)
+fi
 
 export LESSHISTFILE=/dev/null
 
 # Aliases
-alias vim="nvim"
-alias ls="exa --icons"
-alias la="exa --icons -la"
-alias ll="exa --icons -l"
+if command -v nvim &> /dev/null
+then
+    alias vim="nvim"
+fi
+
+if command -v exa &> /dev/null 
+then
+    alias ls="exa --icons"
+    alias la="exa --icons -la"
+    alias ll="exa --icons -l"
+fi
+
+# Alias config for use with bare .dotfiles repo
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Automatically cd into typed directory
@@ -32,8 +48,8 @@ bindkey -v '^?' backward-delete-char
 # Curser block/beam mapping
 function zle-keymap-select () {
     case $KEYMAP in
-	vicmd) echo -ne '\e[1 q';; #Block
-	viins|main) echo -ne '\e[5 q';; #beam
+    vicmd) echo -ne '\e[1 q';; #Block
+    viins|main) echo -ne '\e[5 q';; #beam
     esac
 }
 
@@ -48,5 +64,7 @@ zle-line-init() {
 eval "$(starship init zsh)"
 
 # Syntax highlighting
-source /home/andreas/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+if [[ -f "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]
+then
+    source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

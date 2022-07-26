@@ -17,6 +17,10 @@ require("lspconfig").powershell_es.setup{
   bundle_path = '/opt/PowerShellEditorServices',
 }
 
+require("lspconfig").html.setup{
+  capabilities = capabilities,
+}
+
 -- Keymapings
 nnoremap("K", vim.lsp.buf.hover)
 nnoremap("<Leader>gd", vim.lsp.buf.definition)

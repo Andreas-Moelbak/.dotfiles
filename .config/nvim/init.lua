@@ -1,2 +1,2 @@
 require("set")
-require("packer-plugins")
+require("plugins")
