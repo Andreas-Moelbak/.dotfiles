@@ -24,6 +24,4 @@ return require("packer").startup(function()
 
     -- colorschemes
 	use { "sainnhe/sonokai" }
-
-	use { "lukas-reineke/indent-blankline.nvim" }
 end)

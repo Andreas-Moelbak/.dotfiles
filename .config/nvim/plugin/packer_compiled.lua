@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/anm/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["indent-blankline.nvim"] = {
-    loaded = true,
-    path = "/home/anm/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/anm/.local/share/nvim/site/pack/packer/start/nvim-cmp",
