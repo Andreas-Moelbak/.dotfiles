@@ -32,12 +32,18 @@ export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 # Disable Bold font when using exa
 export EXA_COLORS=di=34:bd=33:cd=33:so=31:ex=32:ur=33:uw=31:ux=32:ue=32:uu=33:gu=33:lc=31:df=32:sn=32:nb=32:nk=32:nm=32:ng=32:nt=32
 
-if pacman -Qs libxft-bgra >/dev/null 2>&1; then
-	# Start graphical server on user's current tty if not already running.
-	[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
-else
-	echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
-#Please run:
-#	\033[32myay -S libxft-bgra-git\033[0m
-#and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`."
+if [[ $OSTYPE == "linux-gnu" ]]; then
+    if command -v startx &> /dev/null; then
+        if command -v pacman &> /dev/null; then
+            if pacman -Qs libxft-bgra >/dev/null 2>&1; then
+                # Start graphical server on user's current tty if not already running.
+                [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+            else
+                echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
+            #Please run:
+            #	\033[32myay -S libxft-bgra-git\033[0m
+            #and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`."
+            fi
+        fi
+    fi
 fi
