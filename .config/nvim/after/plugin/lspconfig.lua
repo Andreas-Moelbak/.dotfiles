@@ -1,19 +1,20 @@
 local Remap = require('keymap')
 local nnoremap = Remap.nnoremap
 
+
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require("lspconfig").pyright.setup{
-   capabilities = capabilities,
+  capabilities = capabilities,
   debounce_text_changes = 150,
 }
 
 require("lspconfig").powershell_es.setup{
-   capabilities = capabilities,
-  bundle_path = '/opt/PowerShellEditorServices',
+  capabilities = capabilities,
+  bundle_path = '~/.opt/PowerShellEditorServices',
 }
 
 require("lspconfig").gopls.setup{
@@ -22,7 +23,7 @@ require("lspconfig").gopls.setup{
 }
 
 require'lspconfig'.sumneko_lua.setup {
-   capabilities = capabilities,
+  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
