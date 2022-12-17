@@ -1,0 +1,8 @@
+.islonline
+Applications*
+Library
+Parallels
+Virtual Machines*
+**/.git/
+**/virtuelenv/*
+**/*cache*
