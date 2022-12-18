@@ -1,5 +1,3 @@
-test -z "$TMUX" && (tmux attach || tmux new-session)
-
 unsetopt BEEP
 
 if [[ -d "$HOME/.local/share/zsh-completions/src" ]]
@@ -67,7 +65,7 @@ zle-line-init() {
     echo -ne "\e[5 q"
 }
 
-# fzf cd from ~~
+# fzf cd from ~
 fdcd() {
     local dir
     dir=$(
