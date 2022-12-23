@@ -15,9 +15,9 @@ require "telescope".setup {
 
 -- load extensions
 require"telescope".load_extension("fzy_native")
--- require"telescope".load_extension("file_browser")
+local builtin = require"telescope.builtin"
 
 -- Keymaps
-nnoremap("<Leader>ff", function() 
-    require('telescope.builtin').find_files()
-end)
+vim.keymap.set("n", "<Leader>pf", function() builtin.find_files() end)
+vim.keymap.set("n", "<Leader>pg", function() builtin.live_grep() end)
+vim.keymap.set("n", "<Leader>ch", function() builtin.command_history() end)

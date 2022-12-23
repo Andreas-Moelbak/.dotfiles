@@ -12,16 +12,18 @@ end
 
 local sources = {
   -- formatting
+  -- b.formatting.prettier,
   b.formatting.prettierd,
   b.formatting.black.with { extra_args = { "--fast" } },
   with_root_file(b.formatting.stylua, "stylua.toml"),
 
   -- diagnostics
   b.diagnostics.flake8,
+  --b.diagnostics.yamllint,
 
   -- code actions
-  b.code_actions.gitsigns,
-  b.code_actions.gitrebase,
+  --b.code_actions.gitsigns,
+  --b.code_actions.gitrebase,
 
   -- hover
   b.hover.dictionary,

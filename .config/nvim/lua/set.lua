@@ -1,9 +1,12 @@
 vim.g.mapleader = " "
 
 vim.opt.termguicolors = true
+vim.opt.conceallevel = 2
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
+
+vim.opt.cmdheight = 0
 
 vim.opt.mouse = "a"
 vim.opt.swapfile = false
@@ -20,10 +23,8 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 
-vim.opt.breakindent = true
-vim.opt.lbr = true
-vim.opt.wrap = true
-vim.opt.scrolloff = 3
+vim.opt.wrap = false
+vim.opt.scrolloff = 5
 vim.opt.wrapscan = true
 
 vim.opt.splitbelow = true

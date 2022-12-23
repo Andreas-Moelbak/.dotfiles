@@ -53,6 +53,9 @@ return require("packer").startup(function(use)
     use { "lukas-reineke/indent-blankline.nvim" }
     use { "mbbill/undotree" }
 
+    -- Neorg
+    use { "nvim-neorg/neorg" }
+
     -- Colorschemes
     use { "sainnhe/sonokai" }
     use { "sainnhe/edge" }

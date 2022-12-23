@@ -1,28 +1,40 @@
-local Remap = require('keymap')
-local nnoremap = Remap.nnoremap
-
-
 -- Setup lspconfig.
+local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- vim.lsp.set_log_level 'trace'
 
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require("lspconfig").pyright.setup{
+-- Keymapings
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
+
+lspconfig.pyright.setup{
   capabilities = capabilities,
   debounce_text_changes = 150,
 }
 
-require("lspconfig").powershell_es.setup{
+lspconfig.powershell_es.setup{
   capabilities = capabilities,
   bundle_path = '~/.opt/PowerShellEditorServices',
 }
 
-require("lspconfig").gopls.setup{
+lspconfig.gopls.setup{
   capabilities = capabilities,
   debounce_text_changes = 150,
 }
+lspconfig.yamlls.setup{
+    capabilities = capabilities,
+    settings = {
+        yaml = {
+            schemas = {
+                kubernetes = "*.yaml",
+            }
+        }
+    }
+}
 
-require'lspconfig'.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -45,8 +57,3 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
-
--- Keymapings
-nnoremap("K", vim.lsp.buf.hover)
-nnoremap("<Leader>gd", vim.lsp.buf.definition)
-nnoremap("<Leader>r", vim.lsp.buf.rename)
