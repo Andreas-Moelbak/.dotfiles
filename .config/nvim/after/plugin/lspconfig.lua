@@ -11,7 +11,6 @@ vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
 
 lspconfig.pyright.setup{
   capabilities = capabilities,
-  debounce_text_changes = 150,
 }
 
 lspconfig.powershell_es.setup{
@@ -23,6 +22,7 @@ lspconfig.gopls.setup{
   capabilities = capabilities,
   debounce_text_changes = 150,
 }
+
 lspconfig.yamlls.setup{
     capabilities = capabilities,
     settings = {

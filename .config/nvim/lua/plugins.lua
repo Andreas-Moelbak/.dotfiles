@@ -30,19 +30,12 @@ return require("packer").startup(function(use)
     use { "hrsh7th/cmp-buffer" }
     use { "hrsh7th/cmp-path" }
 
+    --[[ Snippets
     use { "L3MON4D3/LuaSnip" }
     use { "saadparwaiz1/cmp_luasnip" }
     use { "rafamadriz/friendly-snippets" }
+    ]]--
 
-
-	use { "nvim-lua/plenary.nvim" }
-	use { "nvim-lua/popup.nvim" }
-	use { "nvim-telescope/telescope.nvim" }
-	use { "nvim-telescope/telescope-fzy-native.nvim"}
-    use { "L3MON4D3/LuaSnip",
-        tag = "v<CurrentMajor>.*"
-    }
-    use { "rafamadriz/friendly-snippets" }
 
     use { "nvim-lua/popup.nvim" }
     use { "nvim-telescope/telescope.nvim" }
@@ -54,7 +47,19 @@ return require("packer").startup(function(use)
     use { "mbbill/undotree" }
 
     -- Neorg
-    use { "nvim-neorg/neorg" }
+    use {
+        "nvim-neorg/neorg",
+        config = function()
+            require("config.neorg")
+        end,
+        requires = "nvim-neorg/neorg-telescope",
+    }
+
+    -- Git stuff
+    --use { 'TimUntersberger/neogit' }
+    --use { 'sindrets/diffview.nvim' }
+
+    use { 'jpalardy/vim-slime' }
 
     -- Colorschemes
     use { "sainnhe/sonokai" }

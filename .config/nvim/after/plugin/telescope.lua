@@ -1,6 +1,3 @@
-local Remap = require("keymap")
-local nnoremap = Remap.nnoremap
-
 require "telescope".setup {
   extensions = {
     file_browser = {
@@ -10,7 +7,8 @@ require "telescope".setup {
       override_generic_sorter = false,
       override_file_sorter = true,
     },
-  }
+  },
+  border = {}
 }
 
 -- load extensions

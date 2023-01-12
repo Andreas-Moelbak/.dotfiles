@@ -8,6 +8,11 @@ fi
 export LESSHISTFILE=/dev/null
 
 # Aliases
+if command -v python3 &> /dev/null
+then
+    alias python="python3"
+fi
+
 if command -v nvim &> /dev/null
 then
     alias vim="nvim"
@@ -78,6 +83,9 @@ fdcd() {
 zle -N fdcd
 bindkey '^o' fdcd
 
+tmux-sessionizer() "$HOME/.local/bin/tmux-sessionizer"
+zle -N tmux-sessionizer
+bindkey '^a' tmux-sessionizer
 
 # Initialize starship prompt
 eval "$(starship init zsh)"
