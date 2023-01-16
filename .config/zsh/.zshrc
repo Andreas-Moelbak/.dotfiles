@@ -83,7 +83,8 @@ fdcd() {
 zle -N fdcd
 bindkey '^o' fdcd
 
-tmux-sessionizer() "$HOME/.local/bin/tmux-sessionizer"
+#tmux-sessionizer() "$HOME/.local/bin/tmux-sessionizer"
+tmux-sessionizer() "$HOME/.local/bin/tsesh"
 zle -N tmux-sessionizer
 bindkey '^a' tmux-sessionizer
 
