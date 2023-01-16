@@ -8,9 +8,12 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "<C-s>", vim.cmd.w, {noremap = true, silent = true})
+
 local M = {}
 
-function bind(op, outer_opts)
+function Bind(op, outer_opts)
     outer_opts = outer_opts or {noremap = true}
     return function(lhs, rhs, opts)
         opts = vim.tbl_extend("force",
@@ -21,11 +24,11 @@ function bind(op, outer_opts)
     end
 end
 
-M.nmap = bind("n", {noremap = false})
-M.imap = bind("i", {noremap = false})
-M.nnoremap = bind("n")
-M.vnoremap = bind("v")
-M.xnoremap = bind("x")
-M.inoremap = bind("i")
+M.nmap = Bind("n", {noremap = false})
+M.imap = Bind("i", {noremap = false})
+M.nnoremap = Bind("n")
+M.vnoremap = Bind("v")
+M.xnoremap = Bind("x")
+M.inoremap = Bind("i")
 
 return M

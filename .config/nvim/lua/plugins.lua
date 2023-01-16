@@ -1,69 +1,86 @@
-return require("packer").startup(function(use)
-    -- Package manager
-    use { "wbthomason/packer.nvim" }
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-    use { "nvim-lua/plenary.nvim" }
-    use { "nvim-tree/nvim-web-devicons" }
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-    use {
-        'lewis6991/impatient.nvim',
-        config = function() require('impatient') end
-    }
 
-    use {
+require("lazy").setup({
+
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+
+    {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
-        -- run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    }
-    use { "nvim-lualine/lualine.nvim" }
+        build = ":TSUpdate"
+        -- build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    },
+
+    "nvim-lualine/lualine.nvim",
     -- Lsp installer and config
-    use { "williamboman/mason.nvim" }
-    use { "williamboman/mason-lspconfig.nvim" }
-    use { "neovim/nvim-lspconfig" }
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
 
     --null-ls
-    use { "jose-elias-alvarez/null-ls.nvim" }
+    "jose-elias-alvarez/null-ls.nvim",
 
     -- Completetion
-    use { "hrsh7th/nvim-cmp" }
-    use { "hrsh7th/cmp-nvim-lsp" }
-    use { "hrsh7th/cmp-buffer" }
-    use { "hrsh7th/cmp-path" }
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
 
-    --[[ Snippets
-    use { "L3MON4D3/LuaSnip" }
-    use { "saadparwaiz1/cmp_luasnip" }
-    use { "rafamadriz/friendly-snippets" }
-    ]]--
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
+    --"rafamadriz/friendly-snippets",
 
 
-    use { "nvim-lua/popup.nvim" }
-    use { "nvim-telescope/telescope.nvim" }
-    use { "nvim-telescope/telescope-fzy-native.nvim",
-        run = "make"
-    }
+    "nvim-lua/popup.nvim",
+    "nvim-telescope/telescope.nvim",
+    { "nvim-telescope/telescope-fzy-native.nvim",
+        build = "make"
+    },
 
-    use { "lukas-reineke/indent-blankline.nvim" }
-    use { "mbbill/undotree" }
+    "lukas-reineke/indent-blankline.nvim",
+    "mbbill/undotree",
 
+    -- Note stuff
     -- Neorg
-    use {
+    {
         "nvim-neorg/neorg",
         config = function()
             require("config.neorg")
         end,
-        requires = "nvim-neorg/neorg-telescope",
-    }
+        dependencies = "nvim-neorg/neorg-telescope",
+    },
+    {
+        "mickael-menu/zk-nvim",
+        config = function()
+            require("config.zk-nvim")
+        end,
+        dependencies = "nvim-telescope/telescope.nvim" ,
+    },
 
     -- Git stuff
-    --use { 'TimUntersberger/neogit' }
-    --use { 'sindrets/diffview.nvim' }
+    --'TimUntersberger/neogit',
+    --'sindrets/diffview.nvim',
 
-    use { 'jpalardy/vim-slime' }
+    'jpalardy/vim-slime',
 
     -- Colorschemes
-    use { "sainnhe/sonokai" }
-    use { "sainnhe/edge" }
-	use { "sainnhe/everforest" }
-    use { "folke/tokyonight.nvim" }
-end)
+    "sainnhe/sonokai",
+    "sainnhe/edge",
+	"sainnhe/everforest",
+    "folke/tokyonight.nvim",
+})
