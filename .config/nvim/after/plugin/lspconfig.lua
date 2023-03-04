@@ -2,12 +2,20 @@
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- vim.lsp.set_log_level 'trace'
+--vim.lsp.set_log_level 'trace'
 
 -- Keymapings
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
+
+lspconfig.rust_analyzer.setup{
+  capabilities = capabilities,
+}
+
+lspconfig.ansiblels.setup{
+  capabilities = capabilities,
+}
 
 lspconfig.pyright.setup{
   capabilities = capabilities,
@@ -26,19 +34,26 @@ lspconfig.gopls.setup{
   capabilities = capabilities,
   debounce_text_changes = 150,
 }
-
+--[[
 lspconfig.yamlls.setup{
     capabilities = capabilities,
     settings = {
         yaml = {
+            completion = {
+                enabled = true
+            },
             schemas = {
                 kubernetes = "*.yaml",
             }
         }
     }
 }
+--]]
+lspconfig.yamlls.setup{}
 
-lspconfig.sumneko_lua.setup {
+lspconfig.dockerls.setup{}
+
+lspconfig.lua_ls.setup {
   capabilities = capabilities,
   settings = {
     Lua = {

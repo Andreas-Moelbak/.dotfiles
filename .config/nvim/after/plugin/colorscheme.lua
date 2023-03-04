@@ -31,5 +31,11 @@ require("tokyonight").setup({
   end,
 })
 
-vim.g.my_colorscheme = "tokyonight-night"
+require("catppuccin").setup({
+    flavour = "latte"
+})
+
+--vim.g.my_colorscheme = "tokyonight-night"
+--vim.g.my_colorscheme = "catppuccin"
+vim.g.my_colorscheme = "kanagawa"
 vim.cmd("colorscheme " .. vim.g.my_colorscheme)

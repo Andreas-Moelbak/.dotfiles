@@ -19,7 +19,7 @@ local sources = {
 
   -- diagnostics
   b.diagnostics.flake8,
-  --b.diagnostics.yamllint,
+  b.diagnostics.yamllint,
 
   -- code actions
   --b.code_actions.gitsigns,

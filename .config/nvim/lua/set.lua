@@ -7,6 +7,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
 
 vim.opt.cmdheight = 0
+vim.opt.fillchars = "fold: "
 
 vim.opt.mouse = "a"
 vim.opt.swapfile = false
@@ -30,5 +31,7 @@ vim.opt.wrapscan = true
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+vim.opt.autoread = true
 
 vim.g.netrw_banner = 0

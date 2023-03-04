@@ -8,7 +8,7 @@ require "telescope".setup {
       override_file_sorter = true,
     },
   },
-  border = {}
+  border = false
 }
 
 -- load extensions

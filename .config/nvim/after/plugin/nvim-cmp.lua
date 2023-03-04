@@ -9,7 +9,7 @@ local cmp = require("cmp")
 cmp.setup({
   snippet = {
     expand = function(args)
-       require("luasnip").lsp_expand(args.body)
+      require("luasnip").lsp_expand(args.body)
     end,
   },
 
@@ -18,7 +18,7 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
     { name = 'neorg' },
-    { name = 'luasnip' },
+    --{ name = 'luasnip' },
   }),
 
   mapping = cmp.mapping.preset.insert({

@@ -11,7 +11,7 @@ neogit.setup {
   disable_builtin_notifications = false,
   use_magit_keybindings = false,
   -- Change the default way of opening neogit
-  kind = "tab",
+  kind = "replace",
   -- Change the default way of opening the commit popup
   commit_popup = {
     kind = "split",
@@ -35,7 +35,7 @@ neogit.setup {
   -- Setting any section to `false` will make the section not render at all
   sections = {
     untracked = {
-      folded = false
+      folded = true
     },
     unstaged = {
       folded = false
@@ -57,3 +57,5 @@ neogit.setup {
     },
   },
 }
+
+vim.keymap.set("n", "<Leader>ng", vim.cmd.Neogit)
