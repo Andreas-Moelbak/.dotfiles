@@ -5,6 +5,11 @@ then
     fpath=($HOME/.local/share/zsh-completions/src $fpath)
 fi
 
+if [[ -d "$HOME/.local/bin" ]]
+then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+
 export LESSHISTFILE=/dev/null
 
 # Aliases
@@ -35,6 +40,10 @@ then
     alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 fi
 
+if command -v gcc-12 &> /dev/null
+then
+    export CC=gcc-12
+fi
 
 # Automatically cd into typed directory
 setopt autocd
@@ -69,6 +78,18 @@ zle-line-init() {
     zle -K viins
     echo -ne "\e[5 q"
 }
+
+# Source venvs
+sovs_env() {
+    VENV=$(fd . -d 1 $HOME/venv | xargs basename | fzf)
+    DIR="$HOME/venv/$VENV/bin/activate"
+    source $DIR
+    if zle; then
+      zle reset-prompt
+    fi
+}
+zle -N sovs_env
+bindkey '^u' sovs_env
 
 # fzf cd from ~
 fdcd() {
