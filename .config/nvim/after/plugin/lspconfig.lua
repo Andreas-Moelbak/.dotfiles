@@ -9,6 +9,9 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
 
+vim.keymap.set("n", "<leader>i", ":lua vim.diagnostic.open_float(nil, {focus=false})<CR>")
+
+
 lspconfig.rust_analyzer.setup{
   capabilities = capabilities,
 }
@@ -27,7 +30,7 @@ lspconfig.bashls.setup{
 
 lspconfig.powershell_es.setup{
   capabilities = capabilities,
-  bundle_path = '~/.opt/PowerShellEditorServices',
+  bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services"
 }
 
 lspconfig.gopls.setup{
