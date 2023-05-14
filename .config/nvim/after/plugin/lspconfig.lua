@@ -37,7 +37,7 @@ lspconfig.gopls.setup{
   capabilities = capabilities,
   debounce_text_changes = 150,
 }
---[[
+
 lspconfig.yamlls.setup{
     capabilities = capabilities,
     settings = {
@@ -45,14 +45,16 @@ lspconfig.yamlls.setup{
             completion = {
                 enabled = true
             },
+            schemaStore = {
+                url = "https://www.schemastore.org/api/json/catalog.json",
+                enable = true,
+            },
             schemas = {
-                kubernetes = "*.yaml",
+                kubernetes = "*.k8s.yaml",
             }
         }
     }
 }
---]]
-lspconfig.yamlls.setup{}
 
 lspconfig.dockerls.setup{}
 
