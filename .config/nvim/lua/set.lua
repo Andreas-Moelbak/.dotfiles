@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 
 vim.opt.termguicolors = true
-vim.opt.conceallevel = 2
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true

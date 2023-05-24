@@ -8,7 +8,7 @@ neorg.setup {
     load = {
         ["core.defaults"] = {},
 
-        ["core.norg.dirman"] = {
+        ["core.dirman"] = {
             config = {
                 workspaces = {
                     work = "~/notes/work",
@@ -19,9 +19,8 @@ neorg.setup {
 
         ["core.integrations.telescope"] = {},
 
-        ["core.norg.concealer"] = {},
-
-        ["core.norg.completion"] = {
+        ["core.concealer"] = {},
+        ["core.completion"] = {
             config = {
                 engine = "nvim-cmp"
             }

@@ -45,12 +45,14 @@ require("lazy").setup({
     "saadparwaiz1/cmp_luasnip",
     --"rafamadriz/friendly-snippets",
 
+    --[[
     {
         "stevearc/oil.nvim",
         config = function()
         require("oil").setup()
         end
     },
+    --]]
 
     "nvim-lua/popup.nvim",
     "nvim-telescope/telescope.nvim",

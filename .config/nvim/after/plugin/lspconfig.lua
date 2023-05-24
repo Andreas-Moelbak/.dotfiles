@@ -11,6 +11,9 @@ vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
 
 vim.keymap.set("n", "<leader>i", ":lua vim.diagnostic.open_float(nil, {focus=false})<CR>")
 
+lspconfig.terraformls.setup{
+  capabilities = capabilities,
+}
 
 lspconfig.rust_analyzer.setup{
   capabilities = capabilities,
@@ -51,6 +54,8 @@ lspconfig.yamlls.setup{
             },
             schemas = {
                 kubernetes = "*.k8s.yaml",
+                ["https://json.schemastore.org/prometheus.json"] = "*/prometheus.yml",
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = {"*/docker-compose.yml", "*/docker-compose.yaml"}
             }
         }
     }
@@ -73,6 +78,7 @@ lspconfig.lua_ls.setup {
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false, -- Disable anoying popup
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {

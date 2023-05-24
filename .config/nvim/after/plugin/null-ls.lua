@@ -14,6 +14,7 @@ local sources = {
   -- formatting
   -- b.formatting.prettier,
   b.formatting.prettierd,
+  b.formatting.xmlformat,
   b.formatting.black.with { extra_args = { "--fast" } },
   with_root_file(b.formatting.stylua, "stylua.toml"),
 
