@@ -1,7 +1,7 @@
 return {
     'TimUntersberger/neogit',
     config = function()
-        require("neogit").setup({
+        require("neogit").setup {
             disable_signs = false,
             disable_hint = false,
             disable_context_highlighting = false,
@@ -57,6 +57,6 @@ return {
                     folded = true
                 },
             },
-        })
+        }
     end
 }
