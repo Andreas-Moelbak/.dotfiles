@@ -10,6 +10,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<C-s>", vim.cmd.w, {noremap = true, silent = true})
+vim.keymap.set("n", "<Leader>ng", vim.cmd.Neogit)
 
 local M = {}
 

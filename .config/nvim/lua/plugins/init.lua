@@ -1,22 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "glewis6991/gitsigns.nvimit",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
-
-require("lazy").setup({
-
+return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
 
@@ -66,14 +48,6 @@ require("lazy").setup({
     -- Note stuff
     -- Neorg
     {
-        "nvim-neorg/neorg",
-        build = "Neorg sync-parsers",
-        config = function()
-            require("config.neorg")
-        end,
-        dependencies = "nvim-neorg/neorg-telescope",
-    },
-    {
         "folke/zen-mode.nvim",
         config = function()
             require("zen-mode").setup {
@@ -112,19 +86,7 @@ require("lazy").setup({
         end
     },
     -- Git stuff
-    {
-    'TimUntersberger/neogit',
-        config = function()
-            require("config.neogit")
-        end,
-    },
     'sindrets/diffview.nvim',
-    {
-    'lewis6991/gitsigns.nvim',
-        config = function()
-            require("config.gitsigns")
-        end,
-    },
 
     'jpalardy/vim-slime',
 
@@ -140,4 +102,4 @@ require("lazy").setup({
         "catppuccin/nvim",
         name = "catppuccin"
     },
-})
+}
