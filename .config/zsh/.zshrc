@@ -116,7 +116,14 @@ zle -N tmux-sessionizer
 bindkey '^a' tmux-sessionizer
 
 # Initialize starship prompt
-eval "$(starship init zsh)"
+# Aliases
+if command -v starship &> /dev/null
+then
+    eval "$(starship init zsh)"
+else
+    curl -sS https://starship.rs/install.sh | sh
+    eval "$(starship init zsh)"
+fi
 
 # Syntax highlighting
 if [[ -f "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]
