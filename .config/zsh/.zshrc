@@ -3,6 +3,9 @@ unsetopt BEEP
 if [[ -d "$HOME/.local/share/zsh-completions/src" ]]
 then
     fpath=($HOME/.local/share/zsh-completions/src $fpath)
+else
+    git clone https://github.com/zsh-users/zsh-completions.git $HOME/.local/share/zsh-completions/src
+    fpath=($HOME/.local/share/zsh-completions/src $fpath)
 fi
 
 if [[ -d "$HOME/.local/bin" ]]
@@ -57,6 +60,9 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # Enable VI-mode
 bindkey -v
+
+# Rebind C-r to incremental history search
+bindkey "^R" history-incremental-search-backward
 
 # Use vim keys in tab complete menu.
 bindkey -M menuselect 'h' vi-backward-char
@@ -115,5 +121,8 @@ eval "$(starship init zsh)"
 # Syntax highlighting
 if [[ -f "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]
 then
+    source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.local/share/zsh-syntax-highlighting/
     source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
