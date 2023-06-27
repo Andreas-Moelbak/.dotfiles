@@ -11,7 +11,8 @@ return {
         cmd = "DiffviewOpen"
     },
     {
-        'TimUntersberger/neogit',
+        --'TimUntersberger/neogit',
+        'CKolkey/neogit',
         cmd = "Neogit",
         keys = {
             { "<Leader>ng", "<cmd>Neogit<cr>", desc = "Find files in project" },
