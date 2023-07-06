@@ -38,6 +38,10 @@ return {
                 capabilities = capabilities,
             }
 
+            lspconfig.cssls.setup{
+                capabilities = capabilities,
+            }
+
             lspconfig.rust_analyzer.setup{
                 capabilities = capabilities,
             }

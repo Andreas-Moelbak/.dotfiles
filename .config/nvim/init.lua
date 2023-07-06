@@ -16,6 +16,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- add luarocks modules to nvim path & cpath
+require("setup-luarocks")
+
 -- load plugins
 require("lazy").setup({
     spec = "plugins",
