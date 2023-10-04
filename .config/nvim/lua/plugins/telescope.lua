@@ -9,8 +9,8 @@ return {
     },
     cmd = "Telescope",
     keys = {
-      { "<Leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find files in project" },
-      { "<reader>pg",  "<cmd>Telescope live_grep<cr>", desc = "Find string in project" },
+      { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find files in project" },
+      { "<leader>pg",  "<cmd>Telescope live_grep<cr>", desc = "Find string in project" },
       -- Buffers
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },

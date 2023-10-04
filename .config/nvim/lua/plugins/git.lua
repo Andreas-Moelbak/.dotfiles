@@ -12,7 +12,7 @@ return {
     },
     {
         --'TimUntersberger/neogit',
-        'CKolkey/neogit',
+        'NeogitOrg/neogit',
         cmd = "Neogit",
         keys = {
             { "<Leader>ng", "<cmd>Neogit<cr>", desc = "Find files in project" },
