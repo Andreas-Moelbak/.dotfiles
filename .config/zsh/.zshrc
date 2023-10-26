@@ -13,12 +13,18 @@ then
     export PATH=$HOME/.local/bin:$PATH
 fi
 
+if [[ -d "/opt/homebrew/bin" ]]
+then
+    export PATH=/opt/homebrew/bin:$PATH
+fi
+
 export LESSHISTFILE=/dev/null
 
 # Aliases
 if command -v python3 &> /dev/null
 then
     alias python="python3"
+    alias pip="python3 -m pip"
 fi
 
 if command -v nvim &> /dev/null
