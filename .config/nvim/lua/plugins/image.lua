@@ -1,16 +1,9 @@
 return {
+    --[[
     "3rd/image.nvim",
-    dependencies = {
-        {
-            "nvim-treesitter/nvim-treesitter",
-            build = ":TSUpdate",
-            config = function()
-                require("nvim-treesitter.configs").setup({
-                    ensure_installed = { "markdown" },
-                    highlight = { enable = true },
-                })
-            end,
-        },
+    ft = {
+        "norg",
+        "md"
     },
     opts = {
         backend = "kitty",
@@ -34,4 +27,5 @@ return {
         kitty_method = "normal",
         kitty_tmux_write_delay = 10,
     }
+    --]]
 }

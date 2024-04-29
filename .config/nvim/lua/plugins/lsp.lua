@@ -68,6 +68,8 @@ return {
                 debounce_text_changes = 150,
             }
 
+            --lspconfig.golangci_lint_ls.setup{}
+
             lspconfig.yamlls.setup{
                 capabilities = capabilities,
                 settings = {
@@ -121,6 +123,7 @@ return {
     {
         --null-ls
         "jose-elias-alvarez/null-ls.nvim",
+        lazy = false,
         keys = {
             {"<leader>fl", ":lua vim.lsp.buf.format()<CR>", silent = true}
         },
@@ -144,6 +147,10 @@ return {
                 b.formatting.xmlformat,
                 b.formatting.black.with { extra_args = { "--fast" } },
                 with_root_file(b.formatting.stylua, "stylua.toml"),
+
+                --Golang
+                b.formatting.goimports,
+                --b.diagnostics.golangci_lint,
 
                 -- diagnostics
                 b.diagnostics.flake8,

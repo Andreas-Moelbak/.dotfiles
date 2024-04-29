@@ -56,7 +56,7 @@ return {
         lazy = true
     },
     {"rose-pine/neovim",
-        lazy = true
+        --lazy = true
     },
     {
         "catppuccin/nvim",

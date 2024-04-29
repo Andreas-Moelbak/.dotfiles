@@ -5,7 +5,7 @@ vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
 
-vim.opt.cmdheight = 0
+--vim.opt.cmdheight = 0
 vim.opt.fillchars = "fold: "
 
 vim.opt.mouse = "a"

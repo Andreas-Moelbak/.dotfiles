@@ -44,5 +44,6 @@ require("keymap")
 -- set colorscheme
 --vim.g.my_colorscheme = "catppuccin"
 --vim.g.my_colorscheme = "kanagawa"
-vim.g.my_colorscheme = "tokyonight-night"
+--vim.g.my_colorscheme = "tokyonight-night"
+vim.g.my_colorscheme = "rose-pine-moon"
 vim.cmd("colorscheme " .. vim.g.my_colorscheme)

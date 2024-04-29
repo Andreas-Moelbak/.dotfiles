@@ -7,6 +7,9 @@ return {
     opts = {
         load = {
             ["core.defaults"] = {},
+            ["core.ui"] = {},
+            ["core.ui.calendar"] = {},
+            ["core.tempus"] = {},
 
             ["core.dirman"] = {
                 config = {
