@@ -34,7 +34,7 @@ config.bold_brightens_ansi_colors = true
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 -- Cursor
---config.default_cursor_style = "BlinkingBar"
+config.default_cursor_style = "BlinkingBar"
 --config.force_reverse_video_cursor = true
 config.window_padding = { left = 20, right = 20, top = 20, bottom = 20 }
 -- window_background_opacity = 0.9,
