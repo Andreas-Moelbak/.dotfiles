@@ -18,8 +18,10 @@ return {
             ensure_installed = { "pyright", "lua_ls", "gopls"}
         }
     },
+
     {
         "neovim/nvim-lspconfig",
+        lazy = false,
         keys = {
 			{"K", vim.lsp.buf.hover},
 			{"<Leader>gd", vim.lsp.buf.definition},
@@ -82,7 +84,7 @@ return {
                             enable = true,
                         },
                         schemas = {
-                            kubernetes = "*.k8s.yaml",
+                            kubernetes = "*.yaml",
                             ["https://json.schemastore.org/prometheus.json"] = "*/prometheus.yml",
                             ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = {"*/docker-compose.yml", "*/docker-compose.yaml"}
                         }
@@ -122,7 +124,7 @@ return {
 
     {
         --null-ls
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         lazy = false,
         keys = {
             {"<leader>fl", ":lua vim.lsp.buf.format()<CR>", silent = true}
@@ -143,31 +145,32 @@ return {
             local sources = {
                 -- formatting
                 -- b.formatting.prettier,
-                b.formatting.prettierd,
-                b.formatting.xmlformat,
-                b.formatting.black.with { extra_args = { "--fast" } },
-                with_root_file(b.formatting.stylua, "stylua.toml"),
+                -- b.formatting.terraform,
+                -- b.formatting.prettierd,
+                -- b.formatting.xmlformat,
+                -- b.formatting.black.with { extra_args = { "--fast" } },
+                --with_root_file(b.formatting.stylua, "stylua.toml"),
 
                 --Golang
-                b.formatting.goimports,
+                --b.formatting.goimports,
                 --b.diagnostics.golangci_lint,
 
                 -- diagnostics
-                b.diagnostics.flake8,
-                b.diagnostics.yamllint,
+                --b.diagnostics.flake8,
+                --b.diagnostics.yamllint,
 
                 -- code actions
                 --b.code_actions.gitsigns,
                 --b.code_actions.gitrebase,
 
                 -- hover
-                b.hover.dictionary,
+                --b.hover.dictionary,
             }
 
             nls.setup {
                 -- debug = true,
                 debounce = 150,
-                save_after_format = false,
+                --save_after_format = false,
                 sources = sources,
                 root_dir = nls_utils.root_pattern ".git",
             }

@@ -8,6 +8,11 @@ return {
         ft = 'lua',
         opts = {}
     },
+    {
+      "folke/snacks.nvim",
+      ---@type snacks.Config
+      opts = {}
+    },
     -- ZenMode
     {
         "folke/zen-mode.nvim",
@@ -55,6 +60,7 @@ return {
     {
         'stevearc/oil.nvim',
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        --keys = { { "<leader>n", "<cmd>Oil<cr>", desc = "Open Oil FileExplorer" }, },
         opts = {
             -- Id is automatically added at the beginning, and name at the end
             -- See :help oil-columns
@@ -89,7 +95,7 @@ return {
             -- Deleted files will be removed with the trash_command (below).
             delete_to_trash = false,
             -- Change this to customize the command used when deleting to trash
-            trash_command = "trash-put",
+            --trash_command = "trash-put",
             -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
             prompt_save_on_select_new_entry = true,
             -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap

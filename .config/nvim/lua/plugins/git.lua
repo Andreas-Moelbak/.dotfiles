@@ -8,7 +8,22 @@ return {
     },
     {
         'sindrets/diffview.nvim',
-        cmd = "DiffviewOpen"
+        cmd = "DiffviewOpen",
+        config = function()
+            require("diffview").setup({
+              keymaps = {
+                view = {
+                  ["q"] = "<cmd>DiffviewClose<CR>", -- in file diff view
+                },
+                file_panel = {
+                  ["q"] = "<cmd>DiffviewClose<CR>", -- in file panel
+                },
+                file_history_panel = {
+                  ["q"] = "<cmd>DiffviewClose<CR>", -- in file history panel
+                },
+              },
+            })
+	    end,
     },
     {
         --'TimUntersberger/neogit',

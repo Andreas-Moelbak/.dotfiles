@@ -37,3 +37,14 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 vim.g.python3_host_prog = '/usr/local/bin/python3'
+
+vim.filetype.add({
+  extension = {
+    gotmpl = 'gotmpl',
+  },
+  pattern = {
+    [".*/templates/.*%.tpl"] = "helm",
+    [".*/templates/.*%.ya?ml"] = "helm",
+    ["helmfile.*%.ya?ml"] = "helm",
+  },
+})

@@ -10,3 +10,5 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<C-s>", vim.cmd.w, {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>n", "<cmd>Oil<cr>")
+vim.keymap.set("n", "<leader>ei", "<cmd>IBLToggle<cr>")
